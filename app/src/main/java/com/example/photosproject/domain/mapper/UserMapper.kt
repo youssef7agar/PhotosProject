@@ -8,7 +8,11 @@ class UserMapper @Inject constructor(
     private val addressMapper: AddressMapper
 ) {
 
-    fun map(input: UserRemote): User {
+    fun mapList(input: List<UserRemote>): List<User> {
+        return input.map(::map)
+    }
+
+    private fun map(input: UserRemote): User {
         assertEssentialParams(remote = input)
 
         return User(
@@ -16,18 +20,6 @@ class UserMapper @Inject constructor(
             name = input.name!!,
             address = addressMapper.map(input.address!!)
         )
-    }
-
-    fun mapList(input: List<UserRemote>): List<User> {
-        return input.map { userRemote ->
-            assertEssentialParams(remote = userRemote)
-
-            User(
-                id = userRemote.id!!,
-                name = userRemote.name!!,
-                address = addressMapper.map(userRemote.address!!)
-            )
-        }
     }
 
     private fun assertEssentialParams(remote: UserRemote) {
