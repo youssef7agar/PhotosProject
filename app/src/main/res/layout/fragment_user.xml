@@ -41,13 +41,4 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="userNameTextView, userAddressTextView" />
 
-    <ProgressBar
-        android:id="@+id/albumsProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userAddressTextView" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("/users")
-    fun getUsers(): Single<List<UserRemote>>
+    fun getUser(@Query("id") id: Long): Single<List<UserRemote>>
 
     @GET("/albums")
     fun getAlbums(@Query("userId") userId: Long): Single<List<AlbumRemote>>

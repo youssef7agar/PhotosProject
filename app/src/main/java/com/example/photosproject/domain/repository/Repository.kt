@@ -14,11 +14,11 @@ class Repository @Inject constructor(
     private val albumMapper: AlbumMapper
 ) {
 
-    fun getUsers(): Single<List<User>> {
-        return apiService.getUsers().map(userMapper::mapList)
+    fun getUser(id: Long): Single<List<User>> {
+        return apiService.getUser(id = id).map(userMapper::mapList)
     }
 
     fun getAlbums(userId: Long): Single<List<Album>> {
-        return apiService.getAlbums(userId).map(albumMapper::mapList)
+        return apiService.getAlbums(userId = userId).map(albumMapper::mapList)
     }
 }

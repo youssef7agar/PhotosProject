@@ -53,7 +53,6 @@ class UserFragment : Fragment() {
                 is UserViewState.Success -> {
                     binding.userNameTextView.text = viewState.user.name
                     binding.userAddressTextView.text = viewState.user.address
-                    binding.albumsProgressBar.isVisible = viewState.isAlbumsLoading
                 }
             }
         }

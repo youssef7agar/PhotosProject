@@ -1,5 +1,6 @@
 package com.example.photosproject.presentation.viewstate
 
+import com.example.photosproject.presentation.model.AlbumUiModel
 import com.example.photosproject.presentation.model.UserUiModel
 
 sealed class UserViewState {
@@ -10,6 +11,6 @@ sealed class UserViewState {
 
     data class Success(
         val user: UserUiModel,
-        val isAlbumsLoading: Boolean
+        val albums: List<AlbumUiModel>
     ) : UserViewState()
 }

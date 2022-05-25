@@ -10,8 +10,8 @@ import javax.inject.Inject
 class GetUsersUseCase @Inject constructor(
     private val repository: Repository
 ) {
-    fun execute(): Single<List<User>> {
-        return repository.getUsers()
+    fun execute(id: Long): Single<List<User>> {
+        return repository.getUser(id = id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
