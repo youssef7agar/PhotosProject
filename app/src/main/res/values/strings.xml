@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PhotosProject</string>
+    <string name="my_albums">My Albums</string>
 </resources>
