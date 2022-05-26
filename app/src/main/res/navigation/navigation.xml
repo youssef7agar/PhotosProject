@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/userFragment">
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.photosproject.presentation.view.UserFragment"
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_photosFragment"
+            app:destination="@id/photosFragment" >
+            <argument
+                android:name="album"
+                app:argType="com.example.photosproject.presentation.model.AlbumUiModel"/>
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.example.photosproject.presentation.view.PhotosFragment"
+        tools:layout="@layout/fragment_photos">
+        <argument
+            android:name="album"
+            app:argType="com.example.photosproject.presentation.model.AlbumUiModel"/>
+        <action
+            android:id="@+id/action_photosFragment_to_photoDialog"
+            app:destination="@id/photoDialog" >
+            <argument
+                android:name="photo"
+                app:argType="string"/>
+        </action>
+    </fragment>
+
+    <dialog
+        android:id="@+id/photoDialog"
+        android:name="com.example.photosproject.presentation.view.PhotoDialog"
+        tools:layout="@layout/dialog_photo">
+        <argument
+            android:name="photo"
+            app:argType="string"/>
+    </dialog>
+
+</navigation>
