@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PhotosProject</string>
     <string name="my_albums">My Albums</string>
+    <string name="search_in_images">Search in images…</string>
 </resources>

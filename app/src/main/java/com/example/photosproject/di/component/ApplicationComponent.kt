@@ -6,6 +6,7 @@ import com.example.photosproject.MyApplication
 import com.example.photosproject.di.module.AppModule
 import com.example.photosproject.di.module.RemoteModule
 import com.example.photosproject.di.module.ViewModelModule
+import com.example.photosproject.presentation.view.PhotosFragment
 import com.example.photosproject.presentation.view.UserFragment
 import dagger.BindsInstance
 import dagger.Component
@@ -26,6 +27,8 @@ interface ApplicationComponent {
     fun inject(activity: MainActivity)
 
     fun inject(usersFragment: UserFragment)
+
+    fun inject(photosFragment: PhotosFragment)
 
     @Component.Factory
     interface Factory {

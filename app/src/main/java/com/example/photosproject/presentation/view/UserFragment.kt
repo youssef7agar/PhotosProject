@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.example.photosproject.MyApplication
 import com.example.photosproject.databinding.FragmentUserBinding
 import com.example.photosproject.di.ViewModelProviderFactory
+import com.example.photosproject.presentation.model.AlbumUiModel
 import com.example.photosproject.presentation.view.adapter.AlbumsAdapter
 import com.example.photosproject.presentation.viewmodel.UserViewModel
 import com.example.photosproject.presentation.viewstate.UserViewState
@@ -48,7 +50,9 @@ class UserFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        adapter = AlbumsAdapter()
+        adapter = AlbumsAdapter { album ->
+            goToPhotos(album = album)
+        }
         binding.albumsRecyclerView.adapter = adapter
     }
 
@@ -66,5 +70,10 @@ class UserFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun goToPhotos(album: AlbumUiModel) {
+        val action = UserFragmentDirections.actionUserFragmentToPhotosFragment(album)
+        binding.root.findNavController().navigate(action)
     }
 }

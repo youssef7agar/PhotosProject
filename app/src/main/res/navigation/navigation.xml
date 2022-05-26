@@ -3,11 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/moviesFragment">
+    app:startDestination="@id/userFragment">
 
     <fragment
-        android:id="@+id/moviesFragment"
+        android:id="@+id/userFragment"
         android:name="com.example.photosproject.presentation.view.UserFragment"
-        tools:layout="@layout/fragment_user"/>
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_photosFragment"
+            app:destination="@id/photosFragment" >
+            <argument
+                android:name="album"
+                app:argType="com.example.photosproject.presentation.model.AlbumUiModel"/>
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.example.photosproject.presentation.view.PhotosFragment"
+        tools:layout="@layout/fragment_photos">
+        <argument
+            android:name="album"
+            app:argType="com.example.photosproject.presentation.model.AlbumUiModel"/>
+    </fragment>
 
 </navigation>
