@@ -25,6 +25,22 @@
         <argument
             android:name="album"
             app:argType="com.example.photosproject.presentation.model.AlbumUiModel"/>
+        <action
+            android:id="@+id/action_photosFragment_to_photoDialog"
+            app:destination="@id/photoDialog" >
+            <argument
+                android:name="photo"
+                app:argType="string"/>
+        </action>
     </fragment>
+
+    <dialog
+        android:id="@+id/photoDialog"
+        android:name="com.example.photosproject.presentation.view.PhotoDialog"
+        tools:layout="@layout/dialog_photo">
+        <argument
+            android:name="photo"
+            app:argType="string"/>
+    </dialog>
 
 </navigation>

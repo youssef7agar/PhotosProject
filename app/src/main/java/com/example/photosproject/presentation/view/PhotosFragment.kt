@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.photosproject.MyApplication
 import com.example.photosproject.databinding.FragmentPhotosBinding
@@ -88,7 +89,10 @@ class PhotosFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        adapter = PhotosAdapter()
+        adapter = PhotosAdapter { photoUrl ->
+            val action = PhotosFragmentDirections.actionPhotosFragmentToPhotoDialog(photoUrl)
+            binding.root.findNavController().navigate(action)
+        }
         binding.photosRecyclerView.adapter = adapter
     }
 }
