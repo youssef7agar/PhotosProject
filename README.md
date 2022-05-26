@@ -8,4 +8,4 @@
 ### Architecture:
   Used MVVM
 # Note:<br/>
-You would see i used a different approach to try and load the image in the image dialog just to get a clearer message as the images win't load because they're not found.
+You would see that I used a different approach to try and load the image in the image dialog just to get a clearer error message as the images won't load because they're not found and Glide error messages are not that clear.
