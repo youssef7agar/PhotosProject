@@ -2,6 +2,7 @@
 ### Tools:
   Used RxKotlin<br/>
   Used Dagger<br/>
+  Used JetPack components<br/>
   Used retrofit for networking<br/>
   Used glide to load and attach the images<br/>
   Used mockitokotlin2 alongside with junit for unit testing<br/>
