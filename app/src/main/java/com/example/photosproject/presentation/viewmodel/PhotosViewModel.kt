@@ -1,5 +1,6 @@
 package com.example.photosproject.presentation.viewmodel
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,7 +24,8 @@ class PhotosViewModel @Inject constructor(
     val viewState: LiveData<PhotosViewState>
         get() = _viewState
 
-    private val photos = mutableListOf<Photo>()
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val photos = mutableListOf<Photo>()
 
     fun getPhotos(albumId: Long) {
         _viewState.postValue(PhotosViewState.Loading)
